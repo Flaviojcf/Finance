@@ -11,32 +11,43 @@
 
 <body>
     <header>
-        <h1 id="logo">Finanças</h1>
+        <img src="./imagens/logo.svg" alt="Logo da imagem Dev Finance">
     </header>
     <main class='container'>
         <section id="resume">
-            <h2>Resumo</h2>
+            <h2 class='sr-only'>Resumo</h2>
             <div class="card">
-                <h3>Entradas</h3>
+                <h3>
+                    <span>Entradas</span>
+                    <img src="./imagens/income.svg" alt="Imagem de ganho">
+                </h3>
                 <p>R$ 5.000,00</p>
             </div>
             <div class="card">
-                <h3>Saídas</h3>
+                <h3>
+                    <span>Saídas</span>
+                    <img src="./imagens/expense.svg" alt="Imagem de gasto">
+                </h3>
                 <p>R$ 2.000,00</p>
             </div>
             <div class="card Total">
-                <h3>Total</h3>
+                <h3>
+                    <span>Total</span>
+                    <img src="./imagens/total.svg" alt="imagem de total">
+                </h3>
                 <p>R$ 3.000,00</p>
             </div>
         </section>
         <section id="transactions">
-            <h2>Transações</h2>
+            <h2 class='sr-only'>Transações</h2>
+            <a href="#" onclick='Modal.open()' class="button">Adicionar outra transação</a>
             <table id="data">
                 <thead>
                     <tr>
                         <th>Descrição</th>
                         <th>Valor</th>
                         <th>Data</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,23 +55,53 @@
                         <td class='description'>Luz</td>
                         <td class="expense">- R$500,00</td>
                         <td class='date'>23/01/2021</td>
+                        <td><img src="imagens/minus.svg" alt="Remover"></td>
                     </tr>
                     <tr>
                         <td class='description'>Website</td>
                         <td class="income"> +R$5.000,00</td>
                         <td class='date'>23/01/2021</td>
+                        <td><img src="imagens/minus.svg" alt="Remover"></td>
                     </tr>
                     <tr>
                         <td class='description'>Aluguel</td>
                         <td class="expense">-R$700,00</td>
                         <td class='date'>23/01/2021</td>
+                        <td><img src="imagens/minus.svg" alt="Remover"></td>
                     </tr>
                 </tbody>
             </table>
         </section>
     </main>
+    <div class="modal-overlay ">
+        <div class="modal">
+            <div id="form">
+                <h2>Nova transação</h2>
+                <form action="">
+                    <div class="input-group">
+                        <label class='sr-only' for="description"></label>
+                        <input type="text" id='description' name='description' placeholder="Descrição">
+                    </div>
+                    <div class="input-group">
+                        <label class='sr-only' for="amount"></label>
+                        <input type="number" id='amount' name='amount' placeholder="0,00" step='0.01'>
+                        <small class='help'>Use o sinal negativo (-) para despesas e vírgula (,) para as casas decimais</small>
+                    </div>
+                    <div class="input-group">
+                        <label class='sr-only' for="date"></label>
+                        <input type="date" id='date' name='date'>
+                    </div>
+                    <div class="input-group actions">
+                        <a href="#" onclick='Modal.close()' class='button cancel'>Cancelar</a>
+                        <button>Salvar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </div>
 
     <footer>&copy;FlavioFinance</footer>
+    <script src="script.js"></script>
 </body>
-
 </html>
