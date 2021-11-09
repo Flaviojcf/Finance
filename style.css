@@ -231,6 +231,7 @@ table thead th:last-child, table tboy tr td:last-child {
 
 #form h2 {
     margin-top: 0;
+    text-align: center;
 }
 
 input {
